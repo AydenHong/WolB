@@ -7,12 +7,14 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
 
 export default class MyComponent extends Component {
 
   static defaultProps = {
     title: 'Button',
-    onPress: () => { },
+    // onPress: () => {},
     color: 'white'
 };
 
@@ -20,12 +22,13 @@ constructor(props) {
     super(props);
     this.state = {};
 }
+
   render() {
     return (
       <View style={styles.buttonStyle}>
         <TouchableOpacity
               style={styles.bigButton}
-              onPress={this.onPress}>
+              onPress={this.props.onPress}>
             <Text style={styles.title}>{this.props.title}</Text>
         </TouchableOpacity>
 
