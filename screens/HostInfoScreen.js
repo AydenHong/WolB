@@ -16,6 +16,19 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 export default class HostInfoScreen extends Component {
 
+  functionOne(){
+    this.props.navigation.navigate('Home')
+  };
+
+  functionTwo(){
+    Alert.alert('집주인에게 계약생성 \n요청을 보냈습니다.')
+  };
+
+  functionCombined(){
+    this.functionTwo();
+    this.functionOne();
+  };
+
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
 
@@ -31,7 +44,6 @@ export default class HostInfoScreen extends Component {
       }
     }
   }
-
 
   render() {
     return (
@@ -70,7 +82,8 @@ export default class HostInfoScreen extends Component {
 
            <NextButton
              title='계약 생성'
-             onPress={() => this.props.navigation.navigate('Home')}/>
+             onPress={() => this.functionCombined()}
+          />
 
       </View>
     );
