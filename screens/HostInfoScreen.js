@@ -9,19 +9,20 @@ import {
   Button,
   Alert,
 } from 'react-native';
+import NextButton from '../components/NextButton';
+import CancelButton from '../components/CancelButton';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-export default class HomeScreen extends Component {
+export default class HostInfoScreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
 
     return {
-      headerLeft: <View style={styles.headerLeft}>
-      <TouchableOpacity><Text style={{fontSize: 15, color: 'gray'}}>Back</Text></TouchableOpacity>
-    </View>,
-      headerRight: <View style={styles.header}>
-                      <TouchableOpacity><Text style={{fontSize: 15, color: 'gray'}}>Cancel</Text></TouchableOpacity>
-                    </View>,
+      headerRight: <CancelButton
+          onPress={() => this.props.navigation.push('Home')}/>,
+
       title: '집주인 정보',
       headerTitleStyle: {
         textAlign: 'center',
@@ -30,10 +31,13 @@ export default class HomeScreen extends Component {
       }
     }
   }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{paddingLeft: 25, fontSize: 15, paddingTop: 30}}>집주인 이름</Text>
+        <Text style={styles.title}>집주인 정보</Text>
+        <Text style={{paddingLeft: 25, fontSize: 15, paddingTop: 10}}>집주인 이름</Text>
         <TextInput style={styles.arrange}
           placeholder="이름을 입력해주세요."
           multiline={false}
@@ -48,33 +52,26 @@ export default class HomeScreen extends Component {
         <TextInput style={styles.arrange}
            placeholder="임대 개시 날짜를 입력해 주세요."
            multiline={false}
-           onChangeText={(text) => this.setState({ content: text })}          
+           onChangeText={(text) => this.setState({ content: text })}
         />
          <Text style={{paddingLeft: 25, fontSize: 15}}>임대 종료일</Text>
          <TextInput style={styles.arrange}
            placeholder="임대 종료 날짜를 입력해 주세요."
            multiline={false}
-           onChangeText={(text) => this.setState({ content: text })}          
+           onChangeText={(text) => this.setState({ content: text })}
          />
 
          <Text style={{paddingLeft: 25, fontSize: 15}}>임대료</Text>
          <TextInput style={styles.arrange}
            placeholder="임대료를 입력해 주세요."
            multiline={false}
-           onChangeText={(text) => this.setState({ content: text })}          
+           onChangeText={(text) => this.setState({ content: text })}
          />
-         
-         <View style={styles.buttonStyle}>
-              <TouchableOpacity 
-                    style={styles.bigButton}
-                    onPress={() => {
-                      Alert.alert('집주인에게 계약 확정요청을 보냈습니다.')
-                    }}>
-                  <Text style={{fontSize: 23, color: 'white', marginTop: 10 }}>계약 생성</Text>
-                  </TouchableOpacity>
-            </View>
 
-               
+           <NextButton
+             title='계약 생성'
+             onPress={() => this.props.navigation.navigate('Home')}/>
+
       </View>
     );
   }
@@ -94,7 +91,7 @@ const styles = StyleSheet.create({
     paddingRight: 18
   },
   arrange: {
-    
+
     color: 'gray',
     borderBottomColor: 'lightgray',
     borderBottomWidth: 1,
@@ -113,30 +110,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 30
   },
-  button: {
-    alignItems: 'flex-end',
-    backgroundColor: 'white',
-    marginRight: 50,
-  },
-  bigButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#43DE67',
-    width: 300,
-    height: 50,
 
-  },
-  buttonStyle: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingVertical: 50
+  title: {
+    padding: 30,
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 50
   },
 
-  headerLeft:{
-    padding:5,
-    paddingLeft: 18,
-  }
-  
 
 });

@@ -14,7 +14,7 @@ export default class MyComponent extends Component {
 
   static defaultProps = {
     title: 'Button',
-    // onPress: () => {},
+    onPress: () => {},
     color: 'white'
 };
 
