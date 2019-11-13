@@ -33,9 +33,7 @@ export default class HostInfoScreen extends Component {
     const params = navigation.state.params || {};
 
     return {
-      headerRight: <CancelButton
-          onPress={() => this.props.navigation.push('Home')}/>,
-
+      headerRight: <CancelButton onPress={() => navigation.navigate('Home')}/>,
       title: '집주인 정보',
       headerTitleStyle: {
         textAlign: 'center',
@@ -82,7 +80,7 @@ export default class HostInfoScreen extends Component {
 
            <NextButton
              title='계약 생성'
-             onPress={() => this.functionCombined()}
+             onPress={() => this.functionTwo()}
           />
 
       </View>

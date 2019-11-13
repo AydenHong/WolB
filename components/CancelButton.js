@@ -26,9 +26,7 @@ export default class CancelButton extends Component {
   render() {
     return (
       <View style={styles.header}>
-        <TouchableOpacity
-          onPress={this.props.onPress}
-        >
+        <TouchableOpacity onPress={this.props.onPress}>
         <Text style={{fontSize: 15, color: 'gray'}}>Cancel</Text>
         </TouchableOpacity>
       </View>

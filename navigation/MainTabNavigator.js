@@ -7,8 +7,17 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ContractInfoScreen from '../screens/ContractInfoScreen';
-import AddressScreen from '../screens/AddressScreen'
-import HostInfoScreen from '../screens/HostInfoScreen'
+import AddressScreen from '../screens/AddressScreen';
+import HostInfoScreen from '../screens/HostInfoScreen';
+import AccountScreen from '../screens/AccountScreen';
+import CancelButton from '../components/CancelButton';
+import BankScreen from '../screens/BankScreen';
+import Account from '../screens/Account';
+import PaymentScreen from '../screens/PaymentScreen';
+import LoanScreen from '../screens/LoanScreen';
+import Board from '../screens/Board';
+import request from '../screens/request';
+import AccountScreen2 from '../screens/AccountScreen2'
 
 
 const config = Platform.select({
@@ -21,7 +30,15 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     Contract: ContractInfoScreen,
     Address: AddressScreen,
-    HostInfo: HostInfoScreen
+    HostInfo: HostInfoScreen,
+    Account: AccountScreen,
+    Account2 : Account,
+    Bank: BankScreen,
+    Payment: PaymentScreen,
+    Loan: LoanScreen,
+    Board: Board,
+    Request: request,
+    Account3: AccountScreen2
   },
   config
 );
@@ -44,7 +61,7 @@ HomeStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
-    Links: ContractInfoScreen,
+    Links: AccountScreen2,
   },
   config
 );

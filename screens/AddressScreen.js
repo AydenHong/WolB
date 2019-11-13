@@ -17,8 +17,7 @@ export default class AddressScreen extends Component {
     const params = navigation.state.params || {};
 
     return {
-      headerRight: <CancelButton
-          onPress={() => this.props.navigation.navigate('Home')}/>,
+      headerRight: <CancelButton onPress={() => navigation.navigate('Home')}/>,
       title: 'Location',
       headerTitleStyle: {
         textAlign: 'center',
@@ -109,7 +108,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     justifyContent: 'flex-end',
-    paddingTop: 200,
+    marginTop: 300,
   },
 
 });
