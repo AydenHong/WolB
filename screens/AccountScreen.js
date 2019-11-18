@@ -33,7 +33,6 @@ export default class MyComponent extends Component {
 
   render() {
     return (
-      <ScrollView>
       <View style={styles.container}>
 
         <Text style={{fontSize: 20, fontWeight: 'bold', padding: 25, marginTop: 35}}>보유 계좌 (매성준님)</Text>
@@ -101,7 +100,6 @@ export default class MyComponent extends Component {
         </View>
         <View style={styles.grayline2}/>
       </View>
-      </ScrollView>
     );
   }
 }
@@ -145,7 +143,7 @@ const styles = StyleSheet.create({
   grayline2:{
     borderColor: 'whitesmoke',
     borderBottomWidth: 10,
-    marginTop: 20
+
   },
   header:{
     padding:5,

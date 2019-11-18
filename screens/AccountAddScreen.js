@@ -9,12 +9,14 @@ import {
   Ionicons,
   TouchableOpacity,
   Alert,
-  Button
+  Button,
+  Image
 } from 'react-native';
 import NextButton from '../components/NextButton';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import CancelButton from '../components/CancelButton'
+import SmallButton from '../components/SmallButton';
+import CancelButton from '../components/CancelButton';
 
 export default class ContractInfoScreen extends Component {
 
@@ -23,7 +25,7 @@ export default class ContractInfoScreen extends Component {
 
     return {
       headerRight: <CancelButton onPress={() => navigation.navigate('Home')}/>,
-      title: '계약관리',
+      title: '계좌 연결',
       headerTitleStyle: {
         textAlign: 'center',
         flex: 1,
@@ -35,43 +37,46 @@ export default class ContractInfoScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>세입자 인증</Text>
-        <Text style={{paddingLeft: 25, fontSize: 15}}>세입자 이름</Text>
+      <View style={{flexDirection:'row'}}>
+        <Text style={{paddingBottom:  25, paddingLeft: 25, fontSize: 18, fontWeight: 'bold', paddingTop: 10}}>선택하신 은행:  우리은행</Text>
+        <Image style={styles.right}
+    source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3AavWvxpZTKWtCyTzWbije6dcbQLWYWnSLseXEgY5JQwk5xdb'}}/>
+      </View>
+        <Text style={{paddingLeft: 25, fontSize: 15}}>계좌 번호</Text>
+
         <TextInput style={styles.arrange}
-          placeholder="이름을 입력해주세요."
+          placeholder="계좌번호를 입력해주세요. (-제외)"
           multiline={false}
           onChangeText={(text) => this.setState({ content: text })}
         />
-        <Text style={{paddingLeft: 25, fontSize: 15}}>주민등록번호</Text>
+        <Text style={{paddingLeft: 25, fontSize: 15}}>이름</Text>
         <TextInput style={styles.arrange}
-          placeholder="주민등록번호를 입력해주세요. (-포함)"
+          placeholder="이름을 입력해주세요."
           multiline={false}
           onChangeText={(text) => this.setState({ content: text })}/>
-        <Text style={{paddingLeft: 25, fontSize: 15}}>휴대전화 번호</Text>
+
         <View style={styles.container2}>
-          <TextInput style={styles.arrange2}
-            placeholder="휴대폰 번호를 입력해주세요. (-제외)"
-            multiline={false}
-            onChangeText={(text) => this.setState({ content: text })}>
-          </TextInput>
-          <View style={styles.right}>
-            <TouchableOpacity onPress={() => Alert.alert('입력하신 번호로 \n인증번호를 전송 했습니다.')}><Text style={styles.authColor}>인증번호 발송</Text></TouchableOpacity>
-          </View>
+          <SmallButton onPress={() => this.props.navigation.navigate('Bank')}
+          title='은행선택'
+          />
+        <SmallButton onPress={() => Alert.alert('인증금액을 송금 했습니다.')}
+          title='인증금액 송금'
+          />
         </View>
-        <Text style={{paddingLeft: 25, fontSize: 15}}>인증 번호</Text>
+        <Text style={{paddingLeft: 25, fontSize: 15}}>인증금액 입력</Text>
         <View style={styles.container2}>
           <TextInput style={styles.arrange2}
-            placeholder="SMS로 받으신 인증번호를 입력해주세요."
+            placeholder="계좌로 받으신 인증금액을 입력해주세요."
             multiline={false}
             onChangeText={(text) => this.setState({ content: text })}>
           </TextInput>
           <View style={styles.right}>
-            <TouchableOpacity onPress={() => Alert.alert('휴대폰 인증이 완료 되었습니다.')}><Text style={styles.authColor}>휴대폰 인증</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('계좌 인증이 완료 되었습니다.')}><Text style={styles.authColor}>계좌 인증</Text></TouchableOpacity>
           </View>
         </View>
         <NextButton
           title='다음 단계로'
-          onPress={() => this.props.navigation.navigate('Address')}/>
+          onPress={() => this.props.navigation.navigate('Account3')}/>
       </View>
     );
   }
@@ -80,7 +85,9 @@ export default class ContractInfoScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40
+    marginTop: 50,
+    paddingBottom: 30,
+    paddingTop: 30
   },
   title: {
     padding: 30,
@@ -103,10 +110,12 @@ const styles = StyleSheet.create({
   },
   right      : {
   paddingRight : 15,
-  marginLeft   : 'auto'
+  marginLeft   : 10,
+  height: 45,
+  width: 45
 },
   container2 : {
-    width          : '100%',
+
     // height: '100%',
     flexDirection  : 'row',
     alignItems     : 'center',
@@ -131,5 +140,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 30
   },
+
+
 
 });

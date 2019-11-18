@@ -28,7 +28,7 @@ export default class MyComponent extends Component {
       <View style={styles.container}>
         <Text style={styles.banktitle}>은행 선택</Text>
         <View style={{flexDirection: 'row', marginTop: 50}}>
-          <TouchableOpacity style={styles.banklist} onPress={() => this.props.navigation.navigate('Account2')}>
+          <TouchableOpacity style={styles.banklist} onPress={() => this.props.navigation.navigate('AccountAdd')}>
             <Text style={styles.banktext}>우리</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.banklist}>

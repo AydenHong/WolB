@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   grayline:{
     borderColor: 'whitesmoke',
     borderBottomWidth: 10,
-    marginTop: 130,
+    marginTop: 125,
   },
   divider:{
     height: 90,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   grayline2:{
     borderColor: 'whitesmoke',
     borderBottomWidth: 10,
-    marginBottom: 50
+
   },
   header:{
     padding:5,

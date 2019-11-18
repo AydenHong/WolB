@@ -18,6 +18,8 @@ import LoanScreen from '../screens/LoanScreen';
 import Board from '../screens/Board';
 import request from '../screens/request';
 import AccountScreen2 from '../screens/AccountScreen2'
+import LogInScreen from '../screens/LogInScreen'
+import AccountAddScreen from '../screens/AccountAddScreen'
 
 
 const config = Platform.select({
@@ -38,7 +40,8 @@ const HomeStack = createStackNavigator(
     Loan: LoanScreen,
     Board: Board,
     Request: request,
-    Account3: AccountScreen2
+    Account3: AccountScreen2,
+    AccountAdd: AccountAddScreen
   },
   config
 );
@@ -61,7 +64,7 @@ HomeStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
-    Links: AccountScreen2,
+    Links: HomeScreen,
   },
   config
 );

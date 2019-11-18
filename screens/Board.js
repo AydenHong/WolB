@@ -10,9 +10,7 @@ import {
 import NextButton from '../components/NextButton';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-
-
-
+import CancelButton from '../components/CancelButton';
 
 export default class Board extends Component {
 
@@ -20,7 +18,7 @@ export default class Board extends Component {
     const params = navigation.state.params || {};
 
     return {
-
+      headerRight: <CancelButton onPress={() => navigation.navigate('Home')}/>,
       title: '대쉬 보드',
       headerTitleStyle: {
         textAlign: 'center',

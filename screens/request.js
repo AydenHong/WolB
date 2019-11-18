@@ -15,7 +15,7 @@ import NextButton from '../components/NextButton';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
-
+import CancelButton from '../components/CancelButton'
 
 export default class LoanScreen extends Component {
 
@@ -36,7 +36,7 @@ export default class LoanScreen extends Component {
     const params = navigation.state.params || {};
 
     return {
-
+      headerRight: <CancelButton onPress={() => navigation.navigate('Home')}/>,
       title: '요청 하기',
       headerTitleStyle: {
         textAlign: 'center',

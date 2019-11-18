@@ -30,7 +30,6 @@ export default class HomeScreen extends Component {
 
   render() {
     return (
-      <ScrollView>
       <View style={styles.container}>
       <View
       style={{
@@ -98,7 +97,7 @@ export default class HomeScreen extends Component {
           </TouchableOpacity>
         </View>
       </View>
-      </ScrollView>
+
     );
   }
 }
@@ -126,7 +125,7 @@ const styles = StyleSheet.create({
     height: 80
   },
   iconpadding:{
-    paddingTop: 30,
+    paddingTop: 5,
     paddingLeft: 30,
     paddingRight: 30,
   },
