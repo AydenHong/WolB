@@ -36,7 +36,7 @@ export default class LogInScreen extends Component {
         <View style={styles.logo}>
               <Image
                 style={{width: 180, height: 180}}
-                source={require('/Users/nonamer/Desktop/WolB/assets/images/Logo.png')}/>
+                source={require('../assets/images/Logo.png')}/>
         </View>
         <View style={styles.map2}>
           <Text style={{fontSize: 21, fontWeight: 'bold'}}>월비(WolB)</Text>
